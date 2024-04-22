@@ -1,5 +1,8 @@
 # CFS Token Contracts
 
+## Create Token Flow with Thirdweb
+![Create Token Flow with Thirdweb](docs/create-token-with-thirdweb.png)
+
 ## Overview
 
 - We created our token on the Thirdweb platform.
