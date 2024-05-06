@@ -12,8 +12,7 @@
 2. Prepare the owner wallet in the browser extension would be easier.
 3. Open this contract code folder in terminal.
 4. Run this command in the terminal in this folder "yarn", it will install all libraries.
-5. Then run 'yarn deploy', you will get a link to Thirdweb dashboard like this: 
-   Open this link to deploy your contracts: https://thirdweb.com/contracts/deploy/QmPu9AVFxg8AunnhyexmcDenYDaWxgY7GvqTagtx9x9cqu
+5. Run `yarn deploy`, this will give you a link to the Thirdweb dashboard, open it.
 6. Fill the form in the image below and replace the primary address with your wallet address.
    ![Create Token with Thirdweb](docs/form-input-create-token.png)
 7. Click deploy now.
