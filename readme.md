@@ -15,7 +15,7 @@
 5. Then run 'yarn deploy', you will get a link to Thirdweb dashboard like this: 
    Open this link to deploy your contracts: https://thirdweb.com/contracts/deploy/QmPu9AVFxg8AunnhyexmcDenYDaWxgY7GvqTagtx9x9cqu
 6. Fill the form in the image below and replace the primary address with your wallet address.
-   ![Create Token with Thirdweb](docs/create-token-with-thirdweb.png)
+   ![Create Token with Thirdweb](docs/form-input-create-token.png)
 7. Click deploy now.
 8. Click 'Sign' for every popup like this one: ![Sign wallet to create contract](docs/sign-wallet-to-create-contract.png)
 9. Success contract: ![Success create contract](docs/success-create-contract.png)
