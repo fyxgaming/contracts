@@ -44,7 +44,7 @@ In order to disperse the rewards on the scheduler - the staking rewards, we need
 
 The process is as follows:
  - Create new private key/wallet for the network in question
- - Go to this repo and add it as a repository secret: https://github.com/fyxgaming/gateway-txn-scanner with the name SCHEDULER_WALLET_<Network>
+ - Go to this repo and add it as a repository secret: https://github.com/fyxgaming/gateway-txn-scanner with the name PRIVATE_KEY_MINTER_WALLET_PRODUCTION
 
 The scheduler running on the gateway txn scanner server will read this to setup the wallet that mints the rewards.
 
