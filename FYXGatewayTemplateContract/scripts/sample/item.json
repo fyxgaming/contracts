@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "name": "Cherries Red",
+        "image": "https://res.cloudinary.com/hn8pdtayf/image/upload/v1710833133/04496b67d6e394bc9fa24168a3fdfb6e.png",
+        "quantity": 1,
+        "timeLastUpdated": "2024-06-19T07:32:01.693Z",
+        "attributes": [
+            {
+                "display_type": "string",
+                "value": "66e4f2204779bd52ab581e602ed49010882fd6754004900a6d65fd954ffe28f4",
+                "trait_type": "GLTF_ID"
+            }
+        ],
+        "entity": "3918",
+        "rarity": "Common",
+        "background_color": "#f2e1c1",
+        "amount": 1
+    }
+]
