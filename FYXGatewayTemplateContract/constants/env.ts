@@ -1,0 +1,28 @@
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '../.env' });
+
+export const env = {
+    ETHERSCAN_API_KEY: process.env.ETHERSCAN_API_KEY,
+    NFT_STORAGE_API_KEY: process.env.NFT_STORAGE_API_KEY,
+    SIMPLE_HASH_API_KEY: process.env.SIMPLE_HASH_API_KEY,
+    BNB_SCANNER_API_KEY: process.env.BNB_SCANNER_API_KEY,
+
+    POLYGON_SCANNER_API_KEY: process.env.POLYGON_SCANNER_API_KEY,
+    POLYGON_RPC_URL: process.env.POLYGON_RPC_URL,
+    POLYGON_PRIVATE_KEY: process.env.POLYGON_PRIVATE_KEY,
+
+    SEPOLIA_RPC_URL: process.env.SEPOLIA_RPC_URL,
+    SEPOLIA_PRIVATE_KEY: process.env.SEPOLIA_PRIVATE_KEY,
+
+    BSCTESTNET_RPC_URL: process.env.BSCTESTNET_RPC_URL,
+    BSCTESTNET_PRIVATE_KEY: process.env.BSCTESTNET_PRIVATE_KEY,
+
+    MUMBAI_RPC_URL: process.env.MUMBAI_RPC_URL,
+    MUMBAI_PRIVATE_KEY: process.env.MUMBAI_PRIVATE_KEY,
+
+    ETHEREUM_RPC_URL: process.env.ETHEREUM_RPC_URL,
+    ETHEREUM_PRIVATE_KEY: process.env.ETHEREUM_PRIVATE_KEY,
+    ZAPIER_URL: process.env.ZAPIER_URL,
+};
+  
