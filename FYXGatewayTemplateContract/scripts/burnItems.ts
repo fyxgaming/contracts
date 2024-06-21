@@ -57,14 +57,31 @@ export function calculateGasLimit(numItems: number, defaultGasLimitPerItem: numb
 
 }
 
+export type NetworkConfig = {
+    chainId: number;
+};
+
+export const networkConfig: Partial<Record<Network, NetworkConfig>> = {
+    sepolia: {
+        chainId: 11155111,
+    },
+    polygon: {
+        chainId: 137,
+    },
+    ethereum: {
+        chainId: 1,
+    },
+};
+
+
 async function main() {
 
     const DEFAULT_VALUE_X_SAFE_GAS_LIMIT = 1;
     const contractAddress = '0x0916e21FC385ad72402aC4d22eE01FEfd9b88F1a';
     const fromAddress = '0x3324D4129De9cDb54e54Fe16789E64D978ABFA05';
-    const chainIdSepolia = 11155111;
-    const network = 'sepolia';
+    const network = 'sepolia'; // 'sepolia' | 'polygon' | 'ethereum'
     const amounts = [1];
+    const networkConfigUsed = networkConfig[network]
 
     const provider = new ethers.providers.JsonRpcProvider(
         process.env[`${network.toUpperCase()}_RPC_URL`]
@@ -96,7 +113,7 @@ async function main() {
         gasLimit: calculateGasLimit(totalAmount, dataGas?.gasLimit)
     }
 
-    let unsignedTx:any
+    let unsignedTx: any
 
     const burnOmniscapeInstance = await ERC1155BurnFacet__factory.connect(
         contractAddress,
@@ -114,19 +131,19 @@ async function main() {
         }
     )
 
-    unsignedTx.chainId = chainIdSepolia || 5;
+    unsignedTx.chainId = networkConfigUsed?.chainId!;
 
     try {
         // For more precision estimate gas we use alchemy estimate gas
         // to ensure we never hit the Gas Limit
 
-            // Currently we only use ether and not alchemy to estimate gases
-            // because it would be more correct since we are using a signer from ethers
-            const resEstimateGas = await signer.estimateGas(unsignedTx)
+        // Currently we only use ether and not alchemy to estimate gases
+        // because it would be more correct since we are using a signer from ethers
+        const resEstimateGas = await signer.estimateGas(unsignedTx)
 
-            if (resEstimateGas?._hex) {
-                unsignedTx.gasLimit = BigNumber.from(Math.floor((Number(resEstimateGas?._hex) * DEFAULT_VALUE_X_SAFE_GAS_LIMIT)).toString())
-            }
+        if (resEstimateGas?._hex) {
+            unsignedTx.gasLimit = BigNumber.from(Math.floor((Number(resEstimateGas?._hex) * DEFAULT_VALUE_X_SAFE_GAS_LIMIT)).toString())
+        }
     } catch (errEstGasLimit) {
         // Sometimes this line generates an error due to insufficient balance; we need to prevent it
         // since the actual gas payment may not be the same

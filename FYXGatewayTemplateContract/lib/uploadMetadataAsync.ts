@@ -58,7 +58,6 @@ export const uploadMetadataAndGetCIDsWithFileBase = async (assets: any[]) => {
 
         // Get cid from headers
         cid = response?.response?.headers["x-amz-meta-cid"];
-        console.log('ciddah2', cid);
         return response;
       },
       {
@@ -92,7 +91,6 @@ export const uploadMetadataAndGetCIDsWithFileBase = async (assets: any[]) => {
 
         // Get cid from headers
         cid = response?.response?.headers["x-amz-meta-cid"];
-        console.log('ciddah2', cid);
         return response;
       },
       {
@@ -102,7 +100,6 @@ export const uploadMetadataAndGetCIDsWithFileBase = async (assets: any[]) => {
     );
 
     const resMetadata = await client.send(commandMetadata);
-    console.log("resMetadata",resMetadata)
     // --==Upload Metadata json to S3==--
 
     return `https://ipfs.filebase.io/ipfs/${cid.toString()}`;

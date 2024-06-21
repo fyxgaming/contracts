@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "mint": "tsx ./scripts/mintItems.ts",
-    "burn": "tsx ./scripts/burnItems.ts"
+    "burn": "tsx ./scripts/burnItems.ts",
+    "revoke-minter": "hardhat run ./scripts/revokeMinterRole.ts --network sepolia",
+    "revoke-burner": "hardhat run ./scripts/revokeBurnerRole.ts --network sepolia"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.600.0",

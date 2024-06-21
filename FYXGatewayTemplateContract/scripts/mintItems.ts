@@ -59,14 +59,30 @@ export function calculateGasLimit(numItems: number, defaultGasLimitPerItem: numb
 
 }
 
+export type NetworkConfig = {
+    chainId: number;
+};
+
+export const networkConfig: Partial<Record<Network, NetworkConfig>> = {
+    sepolia: {
+        chainId: 11155111,
+    },
+    polygon: {
+        chainId: 137,
+    },
+    ethereum: {
+        chainId: 1,
+    },
+};
+
 async function main() {
 
     const DEFAULT_VALUE_X_SAFE_GAS_LIMIT = 1;
     const contractAddress = '0x0916e21FC385ad72402aC4d22eE01FEfd9b88F1a';
     const destinationAddress = '0x3324D4129De9cDb54e54Fe16789E64D978ABFA05';
-    const chainIdSepolia = 11155111;
-    const network = 'sepolia';
+    const network = 'sepolia'; // 'sepolia' | 'polygon' | 'ethereum'
     const amounts = [1];
+    const networkConfigUsed = networkConfig[network]
     let signature;
     let expiry;
 
@@ -84,7 +100,7 @@ async function main() {
 
     const tokenUris = await uploadMetadataAndGetCIDsWithFileBase(gameItems);
 
-    console.log("tokenUris",tokenUris)
+    console.log("tokenUris", tokenUris)
 
     const resCreateOptimistic = await createOptimisticSignature({
         gameItems,
@@ -92,7 +108,7 @@ async function main() {
         network,
         destinationAddress,
         contractAddress,
-        chainId: chainIdSepolia,
+        chainId: networkConfigUsed?.chainId!,
         tokenUris
     });
 
@@ -129,7 +145,7 @@ async function main() {
         }
     );
 
-    unsignedTx.chainId = chainIdSepolia;
+    unsignedTx.chainId = networkConfigUsed?.chainId!;
 
     try {
         // For more precision estimate gas we use alchemy estimate gas
@@ -152,10 +168,11 @@ async function main() {
     const signedTx = await signer.signTransaction(unsignedTx);
     const transactionHash = ethers.utils.keccak256(signedTx);
     const tx = await signer?.provider?.sendTransaction(signedTx);
-    console.log('THE TRANSACTION: ', transactionHash);
+
     console.log('TX: ', tx);
     console.log('resCreateOptimistic: ', resCreateOptimistic);
-    
+    console.log('THE TRANSACTION: ', transactionHash);
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
