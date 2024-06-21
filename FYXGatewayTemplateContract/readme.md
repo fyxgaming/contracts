@@ -57,6 +57,8 @@ We have some functions for this contract:
 3. Revoke Minter Role from an address (./scripts/revokeMinterRole.ts)
 4. Revoke Burner Role from an address (./scripts/revokeBurnerRole.ts)
 5. Transfer Ownership from the current address to another address (./scripts/transferOwnership.ts)
+6. Sample Minting to an address
+7. Sample Burning to an address
 
 To run these functions, you can use the following command, replacing [./scripts/setMintSigner.ts] with the function you want to run:
 `yarn hardhat run ./scripts/setMintSigner.ts --network sepolia`
