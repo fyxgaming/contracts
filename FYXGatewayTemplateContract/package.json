@@ -1,13 +1,17 @@
 {
-  "name": "omniscape-contract",
+  "name": "universal-contract",
   "version": "1.0.4",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "mint": "tsx ./scripts/mintItems.ts",
     "burn": "tsx ./scripts/burnItems.ts",
-    "revoke-minter": "hardhat run ./scripts/revokeMinterRole.ts --network sepolia",
-    "revoke-burner": "hardhat run ./scripts/revokeBurnerRole.ts --network sepolia"
+    "deploy": "hardhat run ./scripts/deploy.ts --network polygon",
+    "set-burner-role": "hardhat run ./scripts/setBurnerRole.ts --network polygon",
+    "set-minter-role": "hardhat run ./scripts/setMinterRole.ts --network polygon",
+    "revoke-minter": "hardhat run ./scripts/revokeMinterRole.ts --network polygon",
+    "revoke-burner": "hardhat run ./scripts/revokeBurnerRole.ts --network polygon",
+    "transfer-ownership": "hardhat run ./scripts/transferOwnership.ts --network polygon"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.600.0",

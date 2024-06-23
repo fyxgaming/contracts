@@ -1,7 +1,7 @@
 import { ethers, run } from 'hardhat';
 import { addFacetToDiamond } from '../lib/addFacetToDiamond';
 import {
-  OmniscapeDiamond__factory,
+  UniversalDiamond__factory,
   ERC1155Facet__factory,
   ERC1155TokenUriSignatureMintFacet__factory,
   ERC1155BurnFacet__factory,
@@ -18,8 +18,8 @@ async function main() {
   console.log('All accounts: ', accounts);
   console.log('THE OWNER IS: ', tempOwner.address);
 
-  const omniscapeDiamond = await new OmniscapeDiamond__factory(tempOwner).deploy();
-  await omniscapeDiamond.deployed();
+  const universalDiamond = await new UniversalDiamond__factory(tempOwner).deploy();
+  await universalDiamond.deployed();
 
   console.log('Step 0');
 
@@ -55,12 +55,12 @@ async function main() {
   console.log('Step 5');
 
   // add facets to the diamond
-  let tx = await addFacetToDiamond(omniscapeDiamond, erc1155Facet, 'ERC1155Facet');
+  let tx = await addFacetToDiamond(universalDiamond, erc1155Facet, 'ERC1155Facet');
   await tx.wait();
   console.log('Step 6');
 
   tx = await addFacetToDiamond(
-    omniscapeDiamond,
+    universalDiamond,
     erc1155TokenUriSignatureMintFacet,
     'ERC1155TokenUriSignatureMintFacet'
   );
@@ -69,20 +69,20 @@ async function main() {
   await tx.wait();
   // BURN
   tx = await addFacetToDiamond(
-    omniscapeDiamond,
+    universalDiamond,
     erc1155BurnFacet,
     'ERC1155BurnFacet'
   );
   await tx.wait();
 
   console.log('Step 8');
-  tx = await addFacetToDiamond(omniscapeDiamond, erc165Owner, 'OwnerERC165Facet');
+  tx = await addFacetToDiamond(universalDiamond, erc165Owner, 'OwnerERC165Facet');
   await tx.wait();
 
   console.log('Step 9');
 
   const erc165Instance = await OwnerERC165Facet__factory.connect(
-    omniscapeDiamond.address,
+    universalDiamond.address,
     tempOwner
   );
 
@@ -96,7 +96,7 @@ async function main() {
 
   // verify all contracts on etherscan
   const toVerify = [
-    omniscapeDiamond.address,
+    universalDiamond.address,
     erc1155Facet.address,
     erc165Owner.address,
     erc1155TokenUriSignatureMintFacet.address,
@@ -120,7 +120,7 @@ async function main() {
   // Set the burner role to owner
   const erc1155BurnFacetFactory =
     await ERC1155BurnFacet__factory.connect(
-      omniscapeDiamond.address, // the address of the deployed contract
+      universalDiamond.address, // the address of the deployed contract
       tempOwner
     );
 
@@ -133,7 +133,7 @@ async function main() {
   // Set the minter role to owner
   const erc1155TokenUriSignatureMintFacetFactory =
     await ERC1155TokenUriSignatureMintFacet__factory.connect(
-      omniscapeDiamond.address, // the address of the deployed contract
+      universalDiamond.address, // the address of the deployed contract
       tempOwner
     );
 

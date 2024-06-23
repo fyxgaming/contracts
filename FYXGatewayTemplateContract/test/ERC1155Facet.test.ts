@@ -1,8 +1,8 @@
 import { describeBehaviorOfERC1155Base } from '@solidstate/spec';
 import { expect } from 'chai';
 import {
-  OmniscapeDiamond__factory,
-  OmniscapeDiamond,
+  UniversalDiamond__factory,
+  UniversalDiamond,
   IERC1155Base,
   ERC1155Facet,
   ERC1155Facet__factory,
@@ -14,7 +14,7 @@ import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { addFacetToDiamond } from '../lib/addFacetToDiamond';
 
 describe('ERC1155Facet', function () {
-  let diamond: OmniscapeDiamond;
+  let diamond: UniversalDiamond;
   let instance: ERC1155Facet;
   let owner: SignerWithAddress;
   let facetImplementation: ERC1155Facet;
@@ -27,7 +27,7 @@ describe('ERC1155Facet', function () {
   });
 
   beforeEach(async function () {
-    diamond = await new OmniscapeDiamond__factory(owner).deploy();
+    diamond = await new UniversalDiamond__factory(owner).deploy();
 
     await addFacetToDiamond(diamond, facetImplementation, 'ERC1155Facet');
     await addFacetToDiamond(diamond, erc165Owner, 'OwnerERC165Facet');

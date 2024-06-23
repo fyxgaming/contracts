@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import {
-  OmniscapeDiamond__factory,
-  OmniscapeDiamond,
+  UniversalDiamond__factory,
+  UniversalDiamond,
   ERC1155Facet,
   ERC1155Facet__factory,
   ERC1155SignatureMintFacet,
@@ -18,7 +18,7 @@ import {
 import { VoidSigner } from 'ethers';
 
 describe('ERC1155Facet', function () {
-  let diamond: OmniscapeDiamond;
+  let diamond: UniversalDiamond;
   let erc1155Instance: ERC1155Facet;
   let sigMintInstance: ERC1155SignatureMintFacet;
   let owner: SignerWithAddress;
@@ -36,7 +36,7 @@ describe('ERC1155Facet', function () {
   });
 
   beforeEach(async function () {
-    diamond = await new OmniscapeDiamond__factory(owner).deploy();
+    diamond = await new UniversalDiamond__factory(owner).deploy();
 
     await addFacetToDiamond(diamond, erc1155, 'ERC1155Facet');
     await addFacetToDiamond(
