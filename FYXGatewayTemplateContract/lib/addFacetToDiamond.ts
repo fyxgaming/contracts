@@ -1,10 +1,10 @@
 import { Contract, ethers } from 'ethers';
-import { OmniscapeDiamond, IDiamondWritableInternal } from '../typechain-types';
+import { UniversalDiamond, IDiamondWritableInternal } from '../typechain-types';
 import { FacetCutAction } from './constants';
 import { getSelectors } from './getSelectorsFromContract';
 
 export const addFacetToDiamond = async function (
-  diamondInstance: OmniscapeDiamond,
+  diamondInstance: UniversalDiamond,
   facetImplementation: Contract,
   facetContractName: string,
   excluded?: string[]

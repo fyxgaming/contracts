@@ -115,12 +115,12 @@ async function main() {
 
     let unsignedTx: any
 
-    const burnOmniscapeInstance = await ERC1155BurnFacet__factory.connect(
+    const burnUniversalInstance = await ERC1155BurnFacet__factory.connect(
         contractAddress,
         signer
     )
     // we use burner because we are not the owner of the contract
-    unsignedTx = await burnOmniscapeInstance.populateTransaction.devBurnBatchWithBurner(
+    unsignedTx = await burnUniversalInstance.populateTransaction.devBurnBatchWithBurner(
         fromAddress,
         ids,
         amounts,

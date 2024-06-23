@@ -21,7 +21,7 @@ Each smart contract module is held within the `contracts/facets` directory, the 
 ## How the Minting Process "From Handcash to Polygon" Works:
 
 1. The user initiates the minting process via the FYX Gateway UI.
-2. The FYX Gateway back end destroys the provided assets on the Omniscape Handcash side by calling the appropriate Omniscape Handcash APIs.
+2. The FYX Gateway back end destroys the provided assets on the Universal Handcash side by calling the appropriate Universal Handcash APIs.
 3. The FYX Gateway Scheduler verifies that the items are truly destroyed and begins the minting process to the user's Polygon wallet.
 
 Note: The reason for the signature flow is that it is important for the items to appear in the OpenSea profile section. If tokens are airdropped to the end user, they don't show up in OpenSea by default.
