@@ -60,6 +60,6 @@ We have some functions for this contract:
 6. Sample Minting to an address
 7. Sample Burning to an address
 
-To run these functions, you can use the following command, replacing [./scripts/setMintSigner.ts] with the function you want to run:
-`yarn hardhat run ./scripts/setMintSigner.ts --network sepolia`
+To run these functions, you can use the following command, replacing [./scripts/setMinterRole.ts] with the function you want to run:
+`yarn hardhat run ./scripts/setMinterRole.ts --network sepolia`
 
