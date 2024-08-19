@@ -62,6 +62,22 @@ contract CFSContract is ERC20SignatureMintVote, Permissions {
     }
 
 
+    function transferBulk(address[] memory _recipients, uint256[] memory _amounts) public {
+        require(_recipients.length == _amounts.length, "Arrays length mismatch");
+        
+        for (uint256 i = 0; i < _recipients.length; i++) {
+            address recipient = _recipients[i];
+            uint256 amount = _amounts[i];
+            
+            if (recipient == address(0) || amount == 0) {
+                continue; // Skip this iteration if recipient or amount is invalid
+            }
+
+            // Transfer tokens from the sender to the recipient
+            require(transfer(recipient, amount), "Transfer failed");
+        }
+    }
+
 
     function totalSupply() public view virtual override returns (uint256) {
         return maxTotalSupply; // Return the current supply of tokens
