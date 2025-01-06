@@ -43,7 +43,7 @@ Emitted when a loot box is opened.
 
 ## Development
 
-This contract is written in Solidity and uses the Sapphire library for generating random numbers. To compile the contract, run `npx hardhat compile`. To deploy the contract, run `npx hardhat run scripts/deploy.ts`.
+This contract is written in Solidity and uses the Sapphire library for generating random numbers. To compile the contract, run `npx hardhat compile`. To deploy the contract, run `npx hardhat run scripts/deploy.ts --network sapphire`.
 
 ### `openLootBox.ts`
 

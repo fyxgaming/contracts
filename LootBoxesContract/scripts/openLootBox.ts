@@ -8,11 +8,14 @@ const abi = [
 ];
 
 // Contract address (replace with the actual address)
-const contractAddress = "0x19a3703cB8a846D59b1e815253AcE408C8F95c80";
+const contractAddress = "0x282fC40B0a86DFf35c820f6a52e60C83aA38CD8F";
+// const contractAddress = "0x19a3703cB8a846D59b1e815253AcE408C8F95c80";
 
 // Example configuration (replace with your RPC URL and private key)
-const provider = new ethers.providers.JsonRpcProvider("https://testnet.sapphire.oasis.dev");
-const privateKey = process.env.SAPPHIRE_TESTNET_PRIVATE_KEY; // Replace with your wallet's private key
+const provider = new ethers.providers.JsonRpcProvider("https://sapphire.oasis.io");
+// const provider = new ethers.providers.JsonRpcProvider("https://testnet.sapphire.oasis.dev");
+// const privateKey = process.env.SAPPHIRE_TESTNET_PRIVATE_KEY; // Replace with your wallet's private key
+const privateKey = process.env.SAPPHIRE_MAINNET_PRIVATE_KEY; // Replace with your wallet's private key
 const signer = new ethers.Wallet(privateKey, provider);
 
 // Loot box items and probabilities

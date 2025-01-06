@@ -13,6 +13,7 @@ const TEST_HDWALLET = {
 }
 
 const accounts = process.env.SAPPHIRE_TESTNET_PRIVATE_KEY ?  [process.env.SAPPHIRE_TESTNET_PRIVATE_KEY]: TEST_HDWALLET;
+const accountsProd = process.env.SAPPHIRE_MAINNET_PRIVATE_KEY ?  [process.env.SAPPHIRE_MAINNET_PRIVATE_KEY]: TEST_HDWALLET;
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -33,7 +34,7 @@ const config: HardhatUserConfig = {
     'sapphire':{
       url: 'https://sapphire.oasis.io',
       chainId: 0x5afe,
-      accounts
+      accounts:accountsProd
     },
     'sapphire_testnet':{
       url: 'https://testnet.sapphire.oasis.dev',

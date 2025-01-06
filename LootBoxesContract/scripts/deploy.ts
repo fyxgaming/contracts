@@ -6,9 +6,9 @@ async function main() {
 
   const LootBoxesOpen = await ethers.getContractFactory("LootBoxesOpen");
   const lootBoxesOpen = await LootBoxesOpen.deploy();
-  await lootBoxesOpen.waitForDeployment();
+  await lootBoxesOpen.deployed();
 
-  console.log(`LootBoxesOpen deployed to ${await lootBoxesOpen.getAddress()}`);
+  console.log(`LootBoxesOpen deployed to ${lootBoxesOpen.address}`);
 }
 
 // Execute the deployment script
