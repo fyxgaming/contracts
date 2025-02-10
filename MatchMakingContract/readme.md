@@ -97,3 +97,7 @@ This script reads events emitted by `storeData` for specific matchmaking data. U
 #### `readMatchMakingWinner.ts`
 
 This script reads events emitted by `declareWinner` for specific winner data. Use it to retrieve stored winner data. To run the script, use `node scripts/readMatchMakingWinner.ts` with the transaction hash as input.
+
+#### `getMatchData.ts`
+
+This script reads events emitted by `storeData` for specific matchmaking data. Use it to retrieve stored data. To run the script, use `npx hardhat run scripts/getMatchData.ts` with the transaction hash as input. This script will return the invite code, winner data, encrypted player data, encrypted owner data, and a boolean indicating if the match is filled.

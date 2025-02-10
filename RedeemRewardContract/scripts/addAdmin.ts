@@ -7,7 +7,7 @@ const abi = [
 ];
 
 // Contract address (replace with your contract's address)
-const contractAddress = "0xDEFCF6d78044187cc8f6dDa1ce5B0D7d5646a1b1"; // Replace with actual contract address
+const contractAddress = "0x73480f4006df33232a547B9c1C684E3975F8BCbe"; // Replace with actual contract address
 
 // RPC URL (replace with your network's URL)
 const provider = new ethers.providers.JsonRpcProvider("https://testnet.sapphire.oasis.dev");

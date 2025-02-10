@@ -5,13 +5,13 @@ async function main() {
   console.log("Deploying the contract with the account:", await deployer.getAddress());
 
   // Get the contract factory
-  const MatchMakingData = await ethers.getContractFactory("MatchMakingData");
+  const RedeemRewardContract = await ethers.getContractFactory("RedeemRewardContract");
 
   // Deploy the contract
-  const matchMakingData = await MatchMakingData.deploy();
-  await matchMakingData.deployed();
+  const redeemRewardContract = await RedeemRewardContract.deploy();
+  await redeemRewardContract.deployed();
 
-  console.log(`MatchMakingData deployed to: ${matchMakingData.address}`);
+  console.log(`RedeemRewardContract deployed to: ${redeemRewardContract.address}`);
 }
 
 // Execute the deployment script
